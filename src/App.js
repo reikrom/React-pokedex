@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Navbar from "./componenets/Navbar";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Search from "./componenets/Search";
+import PokemonContainer from "./componenets/PokemonContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<BrowserRouter>
+			<div>
+				<Navbar />
+				<Switch>
+					<Route exact path='/' component={Search} />
+					<Route path='/:pokemon_name' component={PokemonContainer} />
+				</Switch>
+			</div>
+		</BrowserRouter>
+	);
+};
 
 export default App;
