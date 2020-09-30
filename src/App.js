@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./componenets/Navbar";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Search from "./componenets/Search";
 import PokemonContainer from "./componenets/PokemonContainer";
 
