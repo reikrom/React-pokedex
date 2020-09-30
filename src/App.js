@@ -10,6 +10,7 @@ const App = () => {
 			<div>
 				<Navbar />
 				<Switch>
+					<Redirect from='/:url*(/+)' to={pathname.slice(0, -1)} />
 					<Route exact path='/react-pokedex' component={Search} />
 					<Route
 						path='/react-pokedex/:pokemon_name'
