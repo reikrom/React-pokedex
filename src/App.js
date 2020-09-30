@@ -15,6 +15,7 @@ const App = () => {
 						path='/react-pokedex/:pokemon_name'
 						component={PokemonContainer}
 					/>
+					<Route component={Search} />
 				</Switch>
 			</div>
 		</BrowserRouter>
