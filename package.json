@@ -1,6 +1,6 @@
 {
-	"homepage": "https://www.reikrom.github.io/react-pokedex",
 	"name": "react-pokedex",
+	"homepage": "https://www.reikrom.github.io/react-pokedex/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

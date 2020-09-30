@@ -5,15 +5,17 @@ const Navbar = () => {
 	return (
 		<nav className='nav-wrapper red darken-3'>
 			<div className='container'>
-				<a href='/' className='left brand-logo'>
+				<a href='/react-pokedex' className='left brand-logo'>
 					React-Dex
 				</a>
 				<ul className='right'>
 					<li>
-						<NavLink to='/'>Search</NavLink>
+						<NavLink to='/react-pokedex'>Search</NavLink>
 					</li>
 					<li>
-						<a href={`${Math.ceil(Math.random() * 801)}`}>Random</a>
+						<a href={`/react-pokedex/${Math.ceil(Math.random() * 801)}`}>
+							Random
+						</a>
 					</li>
 				</ul>
 			</div>

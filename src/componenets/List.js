@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import useInfiniteScroll from "./useInfiniteScroll";
 
 const List = ({ list }) => {
 	const [listItems, setListItems] = useState(
 		Array.from(Array(151).keys(), n => n + 1)
 	);
-
+	// eslint-disable-next-line
 	const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
 
 	function fetchMoreListItems() {

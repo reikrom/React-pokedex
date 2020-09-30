@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "./componenets/Navbar";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Search from "./componenets/Search";
@@ -10,8 +10,11 @@ const App = () => {
 			<div>
 				<Navbar />
 				<Switch>
-					<Route exact path='/' component={Search} />
-					<Route path='/:pokemon_name' component={PokemonContainer} />
+					<Route exact path='/react-pokedex' component={Search} />
+					<Route
+						path='/react-pokedex/:pokemon_name'
+						component={PokemonContainer}
+					/>
 				</Switch>
 			</div>
 		</BrowserRouter>

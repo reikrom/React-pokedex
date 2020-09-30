@@ -1,21 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
 import PokemonView from "./PokemonView";
 
 const PokemonContainer = props => {
-	const [id, setId] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [pokemon, setPokemon] = useState(null);
 
 	useEffect(() => {
-		let id = props.match.params.pokemon_name;
-		setId(id);
+		const id = props.match.params.pokemon_name;
 		axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => {
 			setPokemon(res.data);
 			setIsLoading(false);
 		});
+		// eslint-disable-next-line
 	}, []);
 
 	const colors = {

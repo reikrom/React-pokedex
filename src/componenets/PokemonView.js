@@ -70,6 +70,10 @@ const styles = {
 	imageWrapper: {
 		width: "100%",
 		padding: "2em",
+		minHeight: "375px",
+		"@media (min-width: 600px)": {
+			minHeight: "600px",
+		},
 	},
 	image: {
 		width: "100%",

@@ -20,6 +20,7 @@ const Search = ({ classes }) => {
 			setPokemon(res.data.results);
 			setIsLoading(false);
 		});
+		// eslint-disable-next-line
 	}, []);
 
 	const onChange = e => {
@@ -36,7 +37,11 @@ const Search = ({ classes }) => {
 		results.map((mon, index) => {
 			let id = mon.url.match(pokeNr);
 			return (
-				<Link className='black-text' key={index} to={mon.name}>
+				<Link
+					className='black-text'
+					key={index}
+					to={`react-pokedex/${mon.name}`}
+				>
 					<div className={cn("post card z-depth-2", classes.card)}>
 						<div className={cn(classes.imageWrapper, "red lighten-5")}>
 							<div className='spriteWrapper'>
