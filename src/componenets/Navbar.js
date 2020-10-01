@@ -13,7 +13,7 @@ const Navbar = () => {
 						<NavLink to='/react-pokedex'>Search</NavLink>
 					</li>
 					<li>
-						<NavLink to={`/react-pokedex/${Math.ceil(Math.random() * 801)}`}>
+						<NavLink to={`/react-pokedex/${Math.ceil(Math.random() * 801)}/`}>
 							Random
 						</NavLink>
 					</li>
