@@ -17,7 +17,11 @@ const Search = ({ classes }) => {
 		}
 		setIsLoading(true);
 		axios.get("https://pokeapi.co/api/v2/pokemon?limit=801").then(res => {
-			setPokemon(res.data.results);
+			let searchableList = res.data.results.map(mon => ({
+				...mon,
+				searchTerm: mon.name + mon.url.slice(33 - mon.url.length),
+			}));
+			setPokemon(searchableList);
 			setIsLoading(false);
 		});
 		// eslint-disable-next-line
@@ -27,15 +31,18 @@ const Search = ({ classes }) => {
 		setSearchTerm(e.target.value);
 	};
 
-	let searchResults = pokemon.filter(mon => mon.name.includes(searchTerm));
+	let searchResults = pokemon.filter(mon =>
+		mon.searchTerm.includes(searchTerm)
+	);
+
 	let results;
 	searchTerm.length > 0 ? (results = searchResults) : (results = pokemon);
 
-	const pokeNr = /[^v2][0-9]{1,3}/g;
+	const pokeNr = /[0-9]{1,3}/g;
 
 	const pokemonList = !isLoading ? (
 		results.map((mon, index) => {
-			let id = mon.url.match(pokeNr);
+			let id = mon.searchTerm.match(pokeNr);
 			return (
 				<Link
 					className='black-text'
@@ -52,7 +59,7 @@ const Search = ({ classes }) => {
 						</div>
 						<div>
 							<div className={cn("card-content", classes.cardContent)}>
-								<h5 className='center'>#{id[0].slice(1)}</h5>
+								<h5 className='center'>#{id}</h5>
 								<div className='card-title center'>{mon.name}</div>
 							</div>
 						</div>
